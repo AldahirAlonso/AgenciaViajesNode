@@ -1,9 +1,15 @@
 // Importar express.
-import express from 'express';
-import router from './routes/index.js'; // Importar router para las rutas definidas.x
+import express from 'express'; // Framework de Node.js para crear servidores web.
+import router from './routes/index.js'; // Importar router para las rutas definidas.
+import db from './config/db.js'; // Importar la configuración de la base de datos.
 
 // Crear una aplicación de express.
 const app = express();
+
+// Conectar a la base de datos.
+db.authenticate() // authenticate() verifica la conexión a la base de datos.
+    .then( () => console.log('Base de datos conectada')) // Si la conexión es exitosa, mostrar mensaje.
+    .catch( error => console.log('Error al conectar la base de datos: ' + error)) // Si hay un error, mostrar mensaje.
 
 // Definir el puerto.
 const port = process.env.PORT || 4000;
