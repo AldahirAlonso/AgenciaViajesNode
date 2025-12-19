@@ -1,38 +1,29 @@
 // Importar express.
 import express from 'express';
 
+// Importar el controlador de páginas para la página de inicio.
+import { paginaInicio, paginaNosotros, paginaViajes, paginaTestimoniales } from '../controllers/paginasController.js';
+
 // Crear un router de express.
 const router = express.Router();
 
 // Definir las rutas.
 // Una ruta es una URL que el usuario puede visitar en el navegador.
 // Ruta de Inicio.
-router.get('/', (req, res) => { // req - Lo que enviamos | res - Lo que express nos responde.
-    res.render('inicio', { // Render sirve para renderizar una vista PUG.
-        pagina: 'Inicio' // Creamos la variable 'pagina' para pasar a la vista PUG.
-    })
-});
+// Pasamos la ruta '/' al controlador paginaInicio para ordenar la estructura del código.
+router.get('/', paginaInicio); // Usamos el controlador importado para manejar la solicitud.
 
 // Ruta de Nosotros.
-router.get('/nosotros', (req, res) => { // req - Lo que enviamos | res - Lo que express nos responde.
-    res.render('nosotros', { // Render sirve para renderizar una vista PUG.
-        pagina: 'Nosotros' // Creamos la variable 'pagina' para pasar a la vista PUG.
-    })
-});
+// Pasamos la ruta '/nosotros' al controlador paginaNosotros para ordenar la estructura del código.
+router.get('/nosotros', paginaNosotros); // Usamos el controlador importado para manejar la solicitud.
 
 // Ruta de Viajes.
-router.get('/viajes', (req, res) => { // req - Lo que enviamos | res - Lo que express nos responde.
-    res.render('viajes', { // Render sirve para renderizar una vista PUG.
-        pagina: 'Viajes' // Creamos la variable 'pagina' para pasar a la vista PUG.
-    })
-});
+// Pasamos la ruta '/viajes' al controlador paginaViajes para ordenar la estructura del código.
+router.get('/viajes', paginaViajes); // Usamos el controlador importado para manejar la solicitud.
 
 // Ruta de Testimoniales.
-router.get('/testimoniales', (req, res) => { // req - Lo que enviamos | res - Lo que express nos responde.
-    res.render('testimoniales', { // Render sirve para renderizar una vista PUG.
-        pagina: 'Testimoniales' // Creamos la variable 'pagina' para pasar a la vista PUG.
-    })
-});
+// Pasamos la ruta '/testimoniales' al controlador paginaTestimoniales para ordenar la estructura del código.
+router.get('/testimoniales', paginaTestimoniales); // Usamos el controlador importado para manejar la solicitud.
 
 // Exportar el router.
 export default router; // Router sirve para definir las rutas de la aplicación.
