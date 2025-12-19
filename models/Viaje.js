@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize'; // Importar Sequelize para definir el modelo.
-import db from '/config/db.js'; // Importar la instancia de Sequelize configurada para la base de datos.
+import db from '../config/db.js'; // Importar la instancia de Sequelize configurada para la base de datos.
 
 // Definir el modelo "Viaje" con sus respectivos campos y tipos de datos.
 
