@@ -28,6 +28,9 @@ app.use( (req, res, next) => { // Middleware para obtener el año actual.
     next(); // Pasar al siguiente middleware o ruta.
 });
 
+// Agregar body parser para leer los datos del formulario.
+app.use(express.urlencoded({extended: true})); // Habilitar body parser para leer los datos del formulario de la clase TestimonialController.
+
 // Definir la carpeta publica.
 app.use(express.static('public')); // Servir archivos estáticos desde la carpeta 'public' por defecto.
 

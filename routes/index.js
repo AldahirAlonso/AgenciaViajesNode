@@ -9,6 +9,9 @@ import {
     paginaTestimoniales, 
     paginaDetalleViaje 
 } from '../controllers/paginasController.js';
+import {
+    guardarTestimonial
+} from '../controllers/testimonialController.js';
 
 // Crear un router de express.
 const router = express.Router();
@@ -32,6 +35,7 @@ router.get('/viajes/:slug', paginaDetalleViaje); // Usamos el controlador import
 // Ruta de Testimoniales.
 // Pasamos la ruta '/testimoniales' al controlador paginaTestimoniales para ordenar la estructura del código.
 router.get('/testimoniales', paginaTestimoniales); // Usamos el controlador importado para manejar la solicitud.
+router.post('/testimoniales', guardarTestimonial); // Usamos el controlador de testimonialController para mandar los datos del formulario.
 
 // Exportar el router.
 export default router; // Router sirve para definir las rutas de la aplicación.
