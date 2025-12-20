@@ -2,7 +2,13 @@
 import express from 'express';
 
 // Importar el controlador de páginas para la página de inicio.
-import { paginaInicio, paginaNosotros, paginaViajes, paginaTestimoniales } from '../controllers/paginasController.js';
+import { 
+    paginaInicio, 
+    paginaNosotros, 
+    paginaViajes, 
+    paginaTestimoniales, 
+    paginaDetalleViaje 
+} from '../controllers/paginasController.js';
 
 // Crear un router de express.
 const router = express.Router();
@@ -20,6 +26,8 @@ router.get('/nosotros', paginaNosotros); // Usamos el controlador importado para
 // Ruta de Viajes.
 // Pasamos la ruta '/viajes' al controlador paginaViajes para ordenar la estructura del código.
 router.get('/viajes', paginaViajes); // Usamos el controlador importado para manejar la solicitud.
+
+router.get('/viajes/:slug', paginaDetalleViaje); // Usamos el controlador importado para manejar la solicitud.
 
 // Ruta de Testimoniales.
 // Pasamos la ruta '/testimoniales' al controlador paginaTestimoniales para ordenar la estructura del código.
