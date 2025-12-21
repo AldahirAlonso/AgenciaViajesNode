@@ -1,4 +1,6 @@
 import { Viaje } from '../models/Viaje.js';
+import { Testimonial } from '../models/Testimoniales.js';
+
 
 const paginaInicio = (req, res) => { // req - Lo que enviamos | res - Lo que express nos responde.
     res.render('inicio', { // Render sirve para renderizar una vista PUG.
@@ -24,10 +26,20 @@ const paginaViajes = async (req, res) => { // req - Lo que enviamos | res - Lo q
     });
 }
 
-const paginaTestimoniales = (req, res) => { // req - Lo que enviamos | res - Lo que express nos responde.
-    res.render('testimoniales', { // Render sirve para renderizar una vista PUG.
-        pagina: 'Testimoniales' // Creamos la variable 'pagina' para pasar a la vista PUG.
-    });
+const paginaTestimoniales = async (req, res) => { // req - Lo que enviamos | res - Lo que express nos responde.
+
+    try {
+        const testimoniales = await Testimonial.findAll(); // Consultar los testimoniales que estan en la BD.
+
+        res.render('testimoniales', { // Render sirve para renderizar una vista PUG.
+            pagina: 'Testimoniales', // Creamos la variable 'pagina' para pasar a la vista PUG.    
+            testimoniales
+        });
+    } catch (error) {
+        console.log(error)
+        
+    }
+
 }
 
 // Muestra un viaje por su slug.
