@@ -27,6 +27,8 @@ const guardarTestimonial = (req, res) => {
             correo,
             mensaje
         })
+    } else {
+        // Almacenarlo en la base de datos.
     }
 }
 
