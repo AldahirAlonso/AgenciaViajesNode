@@ -17,7 +17,17 @@ const guardarTestimonial = (req, res) => {
         errores.push({mensaje : 'El Mensaje esta vacio.'});
     }
 
-    console.log(errores);
+    if(errores.length > 0) {
+
+        // Mostrar la vista con errores.
+        res.render('testimoniales', {
+            pagina: 'Testimoniales',
+            errores,
+            nombre,
+            correo,
+            mensaje
+        })
+    }
 }
 
 export {
