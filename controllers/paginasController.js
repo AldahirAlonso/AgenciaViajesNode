@@ -4,8 +4,9 @@ import { Testimonial } from '../models/Testimoniales.js';
 
 const paginaInicio = (req, res) => { // req - Lo que enviamos | res - Lo que express nos responde.
     res.render('inicio', { // Render sirve para renderizar una vista PUG.
-        pagina: 'Inicio' // Creamos la variable 'pagina' para pasar a la vista PUG.
-    })
+        pagina: 'Inicio', // Creamos la variable 'pagina' para pasar a la vista PUG.
+        clase: 'home'
+    });
 };
 
 const paginaNosotros = (req, res) => { // req - Lo que enviamos | res - Lo que express nos responde.
