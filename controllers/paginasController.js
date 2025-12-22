@@ -5,13 +5,19 @@ const paginaInicio = async (req, res) => { // req - Lo que enviamos | res - Lo q
 
     // Consultar 3 viajes del modelo Viaje
 
+    const promiseDB = [];
+
+    promiseDB.push( Viaje.findAll({ limit: 3 }) );
+    promiseDB.push( Testimonial.findAll({ limit: 3 }) );
+
     try {
-        const viajes = await Viaje.findAll({ limit: 3 });
+        const resultado = await Promise.all( promiseDB )
 
         res.render('inicio', { // Render sirve para renderizar una vista PUG.
             pagina: 'Inicio', // Creamos la variable 'pagina' para pasar a la vista PUG.
             clase: 'home',
-            viajes
+            viajes: resultado[0],
+            testimoniales : resultado[1]
         });
     } catch (error) {
         console.log(error);
