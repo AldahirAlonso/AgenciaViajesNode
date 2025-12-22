@@ -1,10 +1,9 @@
 import Sequelize from 'sequelize'; // Importar Sequelize para la gestión de bases de datos.
+import dotenv from 'dotenv'
+dotenv.config()
 
 // Configuración de la conexión a la base de datos MySQL.
-const db = new Sequelize('agenciaviajes', 'node_user', 'admin1234567', { // Crear una instancia de Sequelize para conectarse a la base de datos.
-    host: '172.18.16.1', // Host de la base de datos.
-    port: '3306',
-    dialect: 'mysql', // Tipo de base de datos.
+const db = new Sequelize(process.env.DATABASE_URL, {
     define: { // define sirve para definir opciones globales para todos los modelos.
         timestamps: false // timestamps sirve para que Sequelize no cree automáticamente los campos createdAt y updatedAt en las tablas.
     },

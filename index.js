@@ -1,11 +1,7 @@
 // Importar express.
 import express from 'express'; // Framework de Node.js para crear servidores web.
-import dotenv from 'dotenv'
 import router from './routes/index.js'; // Importar router para las rutas definidas.
 import db from './config/db.js'; // Importar la configuración de la base de datos.
-dotenv.config()
-
-console.log(process.env.DATABASE)
 
 // Crear una aplicación de express.
 const app = express();
